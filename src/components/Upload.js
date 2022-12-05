@@ -5,6 +5,7 @@ function Upload(props) {
   const initialState = props.initialState; // initialState is the placeholder image
   const [imageState, setImageState] = useState(); // state and state-setter for image
   const [previewUrl, setPreviewUrl] = useState(() => initialState); // state and state-setter for img preview src url
+  let uploadedImageUrl = '';
 
   useEffect(() => {
     if (!imageState) {
@@ -34,6 +35,8 @@ function Upload(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //uploading image file to imgbb api
     console.log("submitting image");
     const postdata = JSON.stringify({
       base64string: previewUrl.split("base64,")[1],
@@ -43,7 +46,13 @@ function Upload(props) {
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
         console.log("eventlistener reached");
-        console.log(this.responseText);
+        console.log('here is response text', this.responseText);
+        uploadedImageUrl = this.responseText.substring(50, this.responseText.length - 2);
+        console.log('uploaded image url when updated is', uploadedImageUrl);
+        // setUploadedImageUrl({
+        //   title: 'test',
+        //   url: this.responseText.slice(49),
+        // }) 
       }
     });
 
@@ -53,6 +62,41 @@ function Upload(props) {
       console.log("onload ocurred");
     };
     xhr.send(postdata);
+
+    // we set a delay here so that the image variable can update before we fetch
+    setTimeout(() => { 
+    console.log('uploaded image url before fetch is', uploadedImageUrl);
+    //creating object in backend database, using uploaded image url from above
+    fetch('http://localhost:3001/images/new', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          title: 'test',
+          url: uploadedImageUrl
+      }),
+      credentials: 'include',
+    })
+
+    // If we can fetch the data from this route, then proceed
+    .then (res => { 
+        if(res.ok) {
+            return res.json()
+        }
+        throw new Error(res)
+    })
+
+    .then (resJson => {
+        // setImageToAdd({
+        //     title: '',
+        //     url: '',
+        // }) 
+        window.location.href=`http://localhost:3000`
+    })
+    .catch(err => (console.log(err)))
+
+    }, 1000);
   };
 
   return (
