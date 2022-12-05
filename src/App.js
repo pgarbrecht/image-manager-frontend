@@ -59,7 +59,9 @@ class App extends Component {
     return (
       <div className="App">
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home 
+            images={this.state.images}
+          />} />
           <Route path='/upload' element={<Upload 
             placeholderImage={true}
             center

@@ -1,10 +1,13 @@
 import '../App.css';
 
-function ImageTile() {
+function ImageTile(props) {
   return (
-    <div>
-      <p>Image Tile</p>
-    </div>
+    // <Link to ={`/store/${props.id}`}>
+            <div>
+                <h2 key={props.index}>{props.title}</h2>
+                <img className='image-tile' src={props.url} alt={props.title}></img>
+            </div>
+    // </Link>
   );
 }
 
