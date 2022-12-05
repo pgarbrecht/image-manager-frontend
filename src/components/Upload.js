@@ -73,7 +73,7 @@ function Upload(props) {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          title: 'test',
+          title: 'Unnamed',
           url: uploadedImageUrl
       }),
       credentials: 'include',
