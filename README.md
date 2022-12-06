@@ -8,8 +8,8 @@ Note that due to my Heroku eco-dyno plan, there will be a slower than normal loa
 ## Project Links
 * Link to Deployed Application (Frontend): https://image-manager-frontend.herokuapp.com
 * Link to Deployed Application (Backend): https://image-manager-backend.herokuapp.com/images
-* Link to GitHub Repository (Backend): https://github.com/pgarbrecht/image-manager-backend
 * Link to GitHub Repository (Frontend): https://github.com/pgarbrecht/image-manager-frontend
+* Link to GitHub Repository (Backend): https://github.com/pgarbrecht/image-manager-backend
 
 ## Technologies Used
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
