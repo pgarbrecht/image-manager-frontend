@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import '../App.css';
 
 function ImageTile(props) {
@@ -15,15 +16,24 @@ function ImageTile(props) {
 }
 
   return (
-    // <Link to ={`/store/${props.id}`}>
-            <div>
-                <h2 key={props.index}>{props.title}</h2>
-                <button onClick={()=> {handleDeleteImage(props.id)}}>
-                  Delete
-                </button>
-                <img className='image-tile' src={props.url} alt={props.title}></img>
-            </div>
-    // </Link>
+    <div>
+      <div className='image-tile-label'>
+        <h2 key={props.index}>{props.title}</h2>
+        <button className='edit-btn'>
+          <Link to ={`/edit?=${props.id}`}>
+            <span class="material-symbols-outlined">
+              edit
+            </span>
+          </Link>
+        </button>
+        <button className='delete-btn' onClick={()=> {handleDeleteImage(props.id)}}>
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </div>
+      <img className='image-tile' src={props.url} alt={props.title}></img>
+    </div>
   );
 }
 

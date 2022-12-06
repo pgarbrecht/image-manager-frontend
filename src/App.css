@@ -22,13 +22,27 @@
   margin-right: 50px;
 }
 
+.upload-button:hover {
+  background-color: rgb(223, 222, 222);
+}
+
 .home-counter {
   width: 600px;
   margin-left: 95px;
 }
 
+/*IMAGE TILES*/
+
+.image-tile-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .image-tile {
   width: 200px;
+  height: 200px;
   border: solid 2px black;
 }
 
@@ -47,6 +61,24 @@
   /* padding-left: 90px; */
   justify-items: center;
   
+}
+
+.edit-btn, .delete-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: solid 2px black;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  cursor: pointer;
+  background-color: rgb(223, 222, 222);
+}
+
+.material-symbols-outlined {
+  color: black;
 }
 
 /*UPLOAD*/
