@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 600px;
+  width: 650px;
   margin: auto;
   padding-top: 30px;
 }
@@ -36,7 +36,7 @@
 
 .home-counter {
   width: 600px;
-  margin-left: 95px;
+  margin-left: 45px;
 }
 
 /*IMAGE TILES*/
@@ -49,7 +49,7 @@
 }
 
 .image-tile {
-  width: 200px;
+  width: 250px;
   height: 200px;
   border: solid 2px black;
 }
@@ -171,6 +171,6 @@
 
 .edit-page-image {
   margin-top: 30px;
-  width: 200px;
+  width: 250px;
   height: 200px;
 }
