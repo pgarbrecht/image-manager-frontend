@@ -67,7 +67,9 @@ class App extends Component {
             center
             initialState="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"
           />} />
-          <Route path='/edit' element={<Edit />} />
+          <Route path='/edit' element={<Edit 
+            images={this.state.images}
+          />} />
 
         </Routes>
       </div>
