@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../App.css';
 
+// Define base urls for front and back end
+let frontendBaseURL = process.env.REACT_APP_FRONTEND_URL;
+let backendBaseURL = process.env.REACT_APP_BACKEND_URL;
+
 function Upload(props) {
   const initialState = props.initialState; // initialState is the placeholder image
   const [imageState, setImageState] = useState(); // state and state-setter for image
@@ -42,7 +46,7 @@ function Upload(props) {
     const postdata = JSON.stringify({
       base64string: previewUrl.split("base64,")[1],
     });
-    const url = "http://localhost:3001/images/imageupload";
+    const url = backendBaseURL + "/imageupload";
     const xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", function () {
       if (this.readyState === 4) {
@@ -64,7 +68,7 @@ function Upload(props) {
     setTimeout(() => { 
     console.log('uploaded image url before fetch is', uploadedImageUrl);
     //creating object in backend database, using uploaded image url from above
-    fetch('http://localhost:3001/images/new', {
+    fetch(backendBaseURL + '/new', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -85,7 +89,7 @@ function Upload(props) {
     })
 
     .then (resJson => {
-        window.location.href=`http://localhost:3000`
+        window.location.href=frontendBaseURL
     })
     .catch(err => (console.log(err)))
 

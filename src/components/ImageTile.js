@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import '../App.css';
 
+// Define base urls for front and back end
+let frontendBaseURL = process.env.REACT_APP_FRONTEND_URL;
+let backendBaseURL = process.env.REACT_APP_BACKEND_URL;
+
 function ImageTile(props) {
   // Handle delete image method
   const handleDeleteImage = (id) => {
-    fetch(`http://localhost:3001/images/${id}`, {
+    fetch(backendBaseURL + '/' + id, {
     method: 'DELETE'
     }).then( response => {
     const findIndex = props.images.findIndex(image => image._id === id)
@@ -12,7 +16,7 @@ function ImageTile(props) {
     copyImages.splice(findIndex, 1)
     props.setState({images: copyImages})
     console.log('got to bottom of handle delete');
-    }).then(window.location.href=`http://localhost:3000`)
+    }).then(window.location.href=frontendBaseURL)
 }
 
   return (

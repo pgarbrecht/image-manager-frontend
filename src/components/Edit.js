@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import '../App.css';
 
+// Define base urls for front and back end
+let frontendBaseURL = process.env.REACT_APP_FRONTEND_URL;
+let backendBaseURL = process.env.REACT_APP_BACKEND_URL;
+
 function Edit(props) {
   // we retrieve the image id from the Url parameter
   const imageId = window.location.search.slice(2, window.location.search.length)
@@ -29,7 +33,7 @@ function Edit(props) {
   // Handle submit method for edited exercise
   const handleEditImage = (e) => {
     e.preventDefault()
-    fetch(`http://localhost:3001/images/${imageId}`, {
+    fetch(backendBaseURL + '/' + imageId, {
         method: 'PUT',
         body: JSON.stringify({
             title: imageToEdit.title,
@@ -45,7 +49,7 @@ function Edit(props) {
         } throw new Error(res)
     })
     .then(resJson => {
-        window.location.href=`http://localhost:3000`;
+        window.location.href=frontendBaseURL;
     })
     .catch(err => (console.log(err))) 
   }  

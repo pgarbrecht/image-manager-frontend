@@ -10,6 +10,10 @@ import {
   Route
 } from "react-router-dom";
 
+// Define base urls for front and back end
+let frontendBaseURL = process.env.REACT_APP_FRONTEND_URL;
+let backendBaseURL = process.env.REACT_APP_BACKEND_URL;
+
 class App extends Component {
   constructor(props) {
 		super(props);
@@ -25,7 +29,7 @@ class App extends Component {
   // this is the method to get the images and store them in state above
   getImages = () => {
     var headers = {}
-    fetch('http://localhost:3001/images', {
+    fetch(backendBaseURL, {
         method : "GET",
         mode: 'cors',
         headers: headers
