@@ -93,7 +93,7 @@ function Upload(props) {
     })
     .catch(err => (console.log(err)))
 
-    }, 300);
+    }, 1000);
   };
 
   return (
