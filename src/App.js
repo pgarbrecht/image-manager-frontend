@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
 import Home from './components/Home';
-import SearchBar from './components/SearchBar';
 import Upload from './components/Upload';
-import ImageTile from './components/ImageTile';
 import Edit from './components/Edit';
 
 //Using React Router NPM package to keep SPA but allow different routes for functionality
 import {
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 class App extends Component {
@@ -70,7 +67,6 @@ class App extends Component {
           <Route path='/edit' element={<Edit 
             images={this.state.images}
           />} />
-
         </Routes>
       </div>
     );

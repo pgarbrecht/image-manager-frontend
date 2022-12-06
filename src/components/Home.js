@@ -7,7 +7,12 @@ function Home(props) {
   return (
     <div className='home-container'>
       <div className='home-top-utilitybox'>
-        <p className='search'>Search</p>
+        <h1 className='app-name'>
+        <span class="material-symbols-outlined" id='logo'>
+          photo_library
+        </span>
+          Image Manager
+        </h1>
         <Link className='upload-button' to='/upload'>UPLOAD</Link>
       </div>
       <div className='home-grid-container'>

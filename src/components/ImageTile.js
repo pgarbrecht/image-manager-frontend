@@ -19,19 +19,20 @@ function ImageTile(props) {
     <div>
       <div className='image-tile-label'>
         <h2 key={props.index}>{props.title}</h2>
-        <button className='edit-btn'>
-          <Link to={`/edit?=${props.id}`} >
-          {/* <Link to={{pathname:`/edit?=${props.id}`, title: props.title }} > */}
+        <div className='edit-delete-flexbox'>
+          <button className='edit-btn'>
+            <Link to={`/edit?=${props.id}`} >
+              <span className="material-symbols-outlined">
+                edit
+              </span>
+            </Link>
+          </button>
+          <button className='delete-btn' onClick={()=> {handleDeleteImage(props.id)}}>
             <span className="material-symbols-outlined">
-              edit
+              delete
             </span>
-          </Link>
-        </button>
-        <button className='delete-btn' onClick={()=> {handleDeleteImage(props.id)}}>
-          <span className="material-symbols-outlined">
-            delete
-          </span>
-        </button>
+          </button>
+        </div>
       </div>
       <img className='image-tile' src={props.url} alt={props.title}></img>
     </div>

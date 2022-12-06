@@ -1,4 +1,5 @@
 import '../App.css';
+//Note I did not get to this component within the assignment timeframe
 
 function SearchBar() {
   return (

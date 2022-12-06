@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import '../App.css';
 
 function Upload(props) {
@@ -14,7 +15,7 @@ function Upload(props) {
     const fileReader = new FileReader(); // lets us read files on the computer
     // As soon as it's done loading the file, set the preview img src url state to the result
     fileReader.onload = () => {
-      setPreviewUrl(fileReader.result); // setting src to result.
+      setPreviewUrl(fileReader.result); // setting src to result
     };
 
     console.log("inside useeffect");
@@ -49,10 +50,6 @@ function Upload(props) {
         console.log('here is response text', this.responseText);
         uploadedImageUrl = this.responseText.substring(50, this.responseText.length - 2);
         console.log('uploaded image url when updated is', uploadedImageUrl);
-        // setUploadedImageUrl({
-        //   title: 'test',
-        //   url: this.responseText.slice(49),
-        // }) 
       }
     });
 
@@ -88,19 +85,16 @@ function Upload(props) {
     })
 
     .then (resJson => {
-        // setImageToAdd({
-        //     title: '',
-        //     url: '',
-        // }) 
         window.location.href=`http://localhost:3000`
     })
     .catch(err => (console.log(err)))
 
-    }, 1000);
+    }, 300);
   };
 
   return (
     <div className="form-control">
+      <Link className='back-button' to='/'>Back</Link>
       <h1>
         {props.placeholderImage
           ? "Hi there! Upload your image below"
@@ -113,7 +107,7 @@ function Upload(props) {
           accept=".jpg, .png, .jpeg"
           onChange={(e) => onChangeImageHandler(e)}
         />
-        <button onClick={(e) => handleSubmit(e)}>SUBMIT</button>
+        <button onClick={(e) => handleSubmit(e)} className='add-image-submit-button'>SUBMIT</button>
       </form>
       <div id="prev"></div>
       <div className={`image-upload ${props.center && "center"}`}>

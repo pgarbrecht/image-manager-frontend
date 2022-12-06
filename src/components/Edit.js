@@ -65,11 +65,12 @@ function Edit(props) {
                   type='text'
                   value={imageToEdit.title}
                   onChange={handleEditChange}
+                  className='edit-input'
                 >
                 </input>
                 <input 
                   type='submit'
-                  value='Update'
+                  value='UPDATE'
                   className='edit-submit-button'
                 />   
               </form>
@@ -79,7 +80,6 @@ function Edit(props) {
         }
       }
       )}
-      
     </div>
   );
 }
